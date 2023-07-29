@@ -1,0 +1,209 @@
+examples/3dcam/3dcam.c:95:22: style: Local variable 'umkaOk' shadows outer variable [shadowVariable]
+                bool umkaOk = umkaCall(umka, umkaDrawBodies, 0, NULL, NULL);
+                     ^
+examples/3dcam/3dcam.c:37:10: note: Shadowed declaration
+    bool umkaOk = umkaInit(umka, "3dcam.um", NULL, 1024 * 1024, NULL, 0, NULL, false, false, NULL);
+         ^
+examples/3dcam/3dcam.c:95:22: note: Shadow variable
+                bool umkaOk = umkaCall(umka, umkaDrawBodies, 0, NULL, NULL);
+                     ^
+src/umka_common.c:184:70: style:inconclusive: Function 'moduleFindImported' argument 3 names different: declaration 'name' definition 'alias'. [funcArgNamesDifferent]
+int moduleFindImported(Modules *modules, Blocks *blocks, const char *alias)
+                                                                     ^
+src/umka_common.h:183:80: note: Function 'moduleFindImported' argument 3 names different: declaration 'name' definition 'alias'.
+int   moduleFindImported        (Modules *modules, Blocks *blocks, const char *name);
+                                                                               ^
+src/umka_common.c:184:70: note: Function 'moduleFindImported' argument 3 names different: declaration 'name' definition 'alias'.
+int moduleFindImported(Modules *modules, Blocks *blocks, const char *alias)
+                                                                     ^
+src/umka_common.c:69:5: style:inconclusive: Consecutive return, break, continue, goto or throw statements are unnecessary. [duplicateBreak]
+    return "";
+    ^
+src/umka_common.c:82:5: style:inconclusive: Consecutive return, break, continue, goto or throw statements are unnecessary. [duplicateBreak]
+    return NULL;
+    ^
+src/umka_common.c:107:5: style:inconclusive: Consecutive return, break, continue, goto or throw statements are unnecessary. [duplicateBreak]
+    return NULL;
+    ^
+src/umka_decl.c:108:10: style: The scope of the variable 'variadicParamListFound' can be reduced. [variableScope]
+    bool variadicParamListFound = false;
+         ^
+src/umka_expr.c:1603:23: style: The scope of the variable 'itemOffset' can be reduced. [variableScope]
+    int numItems = 0, itemOffset = 0;
+                      ^
+src/umka_expr.c:1471:10: style: Variable 'i' is assigned a value that is never used. [unreadVariable]
+        i++;
+         ^
+src/umka_ident.c:28:23: warning: Either the condition 'ident' is redundant or there is possible null pointer dereference: ident. [nullPointerRedundantCheck]
+        Ident *next = ident->next;
+                      ^
+src/umka_ident.c:25:16: note: Assuming that condition 'ident' is not redundant
+        while (ident && ident->next && ident->next->block != startBlock)
+               ^
+src/umka_ident.c:28:23: note: Null pointer dereference
+        Ident *next = ident->next;
+                      ^
+src/umka_ident.c:30:15: warning: Either the condition 'ident' is redundant or there is possible null pointer dereference: idents->last. [nullPointerRedundantCheck]
+        idents->last->next = NULL;
+              ^
+src/umka_ident.c:25:16: note: Assuming that condition 'ident' is not redundant
+        while (ident && ident->next && ident->next->block != startBlock)
+               ^
+src/umka_ident.c:29:24: note: Assignment 'idents->last=ident', assigned value is 0
+        idents->last = ident;
+                       ^
+src/umka_ident.c:30:15: note: Null pointer dereference
+        idents->last->next = NULL;
+              ^
+src/umka_ident.c:252:6: warning:inconclusive: Possible null pointer dereference: localVarSize [nullPointer]
+    *localVarSize = align(*localVarSize + typeSize(types, type), typeAlignment(types, type));
+     ^
+src/umka_ident.c:242:25: note: Assignment 'localVarSize=NULL', assigned value is 0
+    int *localVarSize = NULL;
+                        ^
+src/umka_ident.c:252:6: note: Null pointer dereference
+    *localVarSize = align(*localVarSize + typeSize(types, type), typeAlignment(types, type));
+     ^
+src/umka_ident.c:253:30: warning:inconclusive: Possible null pointer dereference: localVarSize [nullPointer]
+    return -sizeof(Slot) - (*localVarSize);  // One extra slot for the stack frame ref count
+                             ^
+src/umka_ident.c:242:25: note: Assignment 'localVarSize=NULL', assigned value is 0
+    int *localVarSize = NULL;
+                        ^
+src/umka_ident.c:253:30: note: Null pointer dereference
+    return -sizeof(Slot) - (*localVarSize);  // One extra slot for the stack frame ref count
+                             ^
+src/umka_lexer.c:654:19: style: Variable 'lex->tok.kind' is reassigned a value before the old one has been used. [redundantAssignment]
+    lex->tok.kind = TOK_INTNUMBER;
+                  ^
+src/umka_lexer.c:649:19: note: lex->tok.kind is assigned
+    lex->tok.kind = TOK_NONE;
+                  ^
+src/umka_lexer.c:654:19: note: lex->tok.kind is overwritten
+    lex->tok.kind = TOK_INTNUMBER;
+                  ^
+src/umka_lexer.c:274:8: style: Variable 'ch' is assigned a value that is never used. [unreadVariable]
+    ch = lexChar(lex);
+       ^
+src/umka_stmt.c:844:30: warning: Possible null pointer dereference: sig [nullPointer]
+    doImplicitTypeConv(comp, sig->resultType, &type, NULL, false);
+                             ^
+src/umka_stmt.c:830:22: note: Assignment 'sig=NULL', assigned value is 0
+    Signature *sig = NULL;
+                     ^
+src/umka_stmt.c:844:30: note: Null pointer dereference
+    doImplicitTypeConv(comp, sig->resultType, &type, NULL, false);
+                             ^
+src/umka_stmt.c:845:40: warning: Possible null pointer dereference: sig [nullPointer]
+    typeAssertCompatible(&comp->types, sig->resultType, type, false);
+                                       ^
+src/umka_stmt.c:830:22: note: Assignment 'sig=NULL', assigned value is 0
+    Signature *sig = NULL;
+                     ^
+src/umka_stmt.c:845:40: note: Null pointer dereference
+    typeAssertCompatible(&comp->types, sig->resultType, type, false);
+                                       ^
+src/umka_stmt.c:848:24: warning: Possible null pointer dereference: sig [nullPointer]
+    if (typeStructured(sig->resultType))
+                       ^
+src/umka_stmt.c:830:22: note: Assignment 'sig=NULL', assigned value is 0
+    Signature *sig = NULL;
+                     ^
+src/umka_stmt.c:848:24: note: Null pointer dereference
+    if (typeStructured(sig->resultType))
+                       ^
+src/umka_stmt.c:862:9: warning: Possible null pointer dereference: sig [nullPointer]
+    if (sig->resultType->kind != TYPE_VOID)
+        ^
+src/umka_stmt.c:830:22: note: Assignment 'sig=NULL', assigned value is 0
+    Signature *sig = NULL;
+                     ^
+src/umka_stmt.c:862:9: note: Null pointer dereference
+    if (sig->resultType->kind != TYPE_VOID)
+        ^
+src/umka_stmt.c:954:9: warning: Either the condition 'fn' is redundant or there is possible null pointer dereference: fn. [nullPointerRedundantCheck]
+    if (fn->prototypeOffset >= 0)
+        ^
+src/umka_stmt.c:941:9: note: Assuming that condition 'fn' is not redundant
+    if (fn && fn->kind == IDENT_CONST && fn->type->kind == TYPE_FN && fn->block == 0)
+        ^
+src/umka_stmt.c:954:9: note: Null pointer dereference
+    if (fn->prototypeOffset >= 0)
+        ^
+src/umka_stmt.c:961:25: warning: Either the condition 'fn' is redundant or there is possible null pointer dereference: fn. [nullPointerRedundantCheck]
+    for (int i = 0; i < fn->type->sig.numParams; i++)
+                        ^
+src/umka_stmt.c:941:9: note: Assuming that condition 'fn' is not redundant
+    if (fn && fn->kind == IDENT_CONST && fn->type->kind == TYPE_FN && fn->block == 0)
+        ^
+src/umka_stmt.c:961:25: note: Null pointer dereference
+    for (int i = 0; i < fn->type->sig.numParams; i++)
+                        ^
+src/umka_types.c:73:22: warning: Either the condition 'type' is redundant or there is possible null pointer dereference: type. [nullPointerRedundantCheck]
+        Type *next = type->next;
+                     ^
+src/umka_types.c:70:16: note: Assuming that condition 'type' is not redundant
+        while (type && type->next && type->next->block != startBlock)
+               ^
+src/umka_types.c:73:22: note: Null pointer dereference
+        Type *next = type->next;
+                     ^
+src/umka_types.c:75:14: warning: Either the condition 'type' is redundant or there is possible null pointer dereference: types->last. [nullPointerRedundantCheck]
+        types->last->next = NULL;
+             ^
+src/umka_types.c:70:16: note: Assuming that condition 'type' is not redundant
+        while (type && type->next && type->next->block != startBlock)
+               ^
+src/umka_types.c:74:23: note: Assignment 'types->last=type', assigned value is 0
+        types->last = type;
+                      ^
+src/umka_types.c:75:14: note: Null pointer dereference
+        types->last->next = NULL;
+             ^
+src/umka_types.c:768:18: style: The scope of the variable 'itemBuf' can be reduced. [variableScope]
+            char itemBuf[DEFAULT_STR_LEN + 1];
+                 ^
+src/umka_vm.c:208:9: error: Memory leak: page [memleak]
+        return NULL;
+        ^
+src/umka_vm.c:519:13: error: Common realloc mistake: 'str' nulled but not freed upon failure [memleakOnRealloc]
+            str = realloc(str, capacity);
+            ^
+src/umka_vm.c:373:47: portability: '(void*)chunk' is of type 'void *'. When using void pointers in calculations, the behaviour is undefined. [arithOperationsOnVoidPointer]
+    printf("Add chunk at %p\n", (void *)chunk + sizeof(HeapChunkHeader));
+                                              ^
+tests/lib/lib.c:4:0: style: The function 'add' is never used. [unusedFunction]
+
+^
+src/umka.c:68:0: style: The function 'runPlayground' is never used. [unusedFunction]
+
+^
+tests/lib/lib.c:12:0: style: The function 'sub' is never used. [unusedFunction]
+
+^
+src/umka_types.c:438:0: style: The function 'typeAssertEquivalent' is never used. [unusedFunction]
+
+^
+src/umka_api.c:166:0: style: The function 'umkaAddModule' is never used. [unusedFunction]
+
+^
+src/umka_api.c:220:0: style: The function 'umkaAllocData' is never used. [unusedFunction]
+
+^
+src/umka_api.c:234:0: style: The function 'umkaDecRef' is never used. [unusedFunction]
+
+^
+src/umka_api.c:248:0: style: The function 'umkaGetDynArrayLen' is never used. [unusedFunction]
+
+^
+src/umka_api.c:241:0: style: The function 'umkaGetMapItem' is never used. [unusedFunction]
+
+^
+src/umka_api.c:227:0: style: The function 'umkaIncRef' is never used. [unusedFunction]
+
+^
+src/umka_api.c:213:0: style: The function 'umkaSetHook' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
